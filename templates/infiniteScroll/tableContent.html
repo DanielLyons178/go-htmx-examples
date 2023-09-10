@@ -1,0 +1,16 @@
+{{define "infiniteScroll/tableContent"}}
+    {{range $val := .Customers}}
+    <tr {{if eq $val.Number $.PageSize}} hx-get="/infinite-scroll/contacts/?page={{$.NextPage}}" hx-trigger="revealed"
+        hx-swap="afterend" {{end}}>
+        <td>
+            {{$val.Name}}
+        </td>
+        <td>
+            {{$val.Email}}
+        </td>
+        <td>
+            {{$val.Id}}
+        </td>
+    </tr>
+    {{end}}
+{{end}}

@@ -1,0 +1,14 @@
+{{define "clicktoedit/customer"}}
+{{template "clicktoedit/header"}}
+
+<div hx-target="this" hx-swap="outerHTML">
+    <div><label>First Name</label>: {{.customer.FirstName }}</div>
+    <div><label>Last Name</label>: {{.customer.Surname }}</div>
+    <div><label>Email</label>: {{.customer.Email }}</div>
+    <button hx-get="/clicktoedit/contact/{{.id}}/edit" class="btn btn-primary">
+        Click To Edit
+    </button>
+</div>
+{{template "clicktoedit/footer"}}
+
+{{end}}
